@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>TabSplit</title>
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/733/733317.png" />
+        <link rel="stylesheet" href="style.css" />
+
+        <script src="../common/apiutils.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Hi, <span class="user-name">[name]</span></h1>
+            <h2 id="balanceContainer" class="positive"></h2>
+            <p><ul>
+                <li>Here is your TabSplit transaction history.</li>
+                <li>Transactions highlighted in red mean that you owed money to, or your expenses were covered by <span class="admin-name">[name]</span>.</li>
+                <li>Transactions highlighted in green mean that you paid money to or covered <span class="admin-name">[name]</span>'s expenses.</li>
+            </ul></p>
+            <ul id="transaction-list"></ul>
+        </div>
+    </body>
+</html>

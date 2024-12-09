@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <script src="../common/apiutils.js"></script>
+        <script src="pageutils.js"></script>
+        <script src="main.js"></script>
+        <script src="person.js"></script>
+        <script src="transaction.js"></script>
+        <script src="submit.js"></script>
+        <script src="settings.js"></script>
+
+        <script src="input/general.js"></script>
+        <script src="input/number.js"></script>
+        <script src="input/text.js"></script>
+        <script src="input/numberpassword.js"></script>
+
+        <link rel="stylesheet" href="style.css" />
+        
+        <title>TabSplit</title>
+        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/733/733317.png" />
+    </head>
+    <body>
+        <div id="content">
+            <div id="mainPage" class="page" hidden>
+                <h1 id="currentBalance">$0</h1>
+                <h3 class="h3a">Current Balance</h3>
+                <div id="peopleCards"></div>
+                <div class="footer" onclick="doNewPerson()"><b>Add New Person</b></div>
+            </div>
+            <div id="personPage" class="page" hidden>
+                <!-- <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/share-ios-circle-blue-512.png" id="shareImg" onclick="doShare()" /> -->
+                <img src="https://cdn-icons-png.flaticon.com/512/6704/6704985.png" onclick="settingsClick()" id="settingsImg" />
+                <h2 id="personName" onclick="changeName()"></h2><br><br>
+                <h3 id="personBalance" class="h3b" onclick="doAttemptDelete()"></h3><br><br>
+                <div id="payActions">
+                    <div class="payAction cover" onclick="initiateTransaction(true)"><span>Cover</span></div>
+                    <div class="payAction getCovered" onclick="initiateTransaction(false)"><span>Get Covered</span></div>
+                </div><br><br>
+                <h3 class="h3b">Transactions</h3><br><br>
+                <div id="transactions"></div>
+                <div class="footer" onclick="backToMain()"><b>Back</b></div>
+            </div>
+            <div id="transactionPage" class="page" hidden>
+                <p id="transDate">Transaction Date:</p><br>
+                <p>Transaction Amount:</p>
+                $<input class="input" type="number" id="transAmount" value="0" onchange="doTransactionAmountUpdate()"><br><br>
+                <p>Transaction Label:</p>
+                <input class="input" type="text" id="transLabel" value="" placeholder="Enter Label" onchange="doTransactionLabelUpdate()">
+                <div class="footer" onclick="backToPerson()"><b>Back</b></div><br><br><br><br>
+                <p class="deleteBtn" onclick="deleteCurrentTransaction()"><u>Delete Transaction</u></p>
+            </div>
+            <div id="completeTransaction" class="page" hidden>
+                <br><br><br>
+                How much do you want to <span id="actionType"></span> <span id="actionPerson"></span>?<br><br>
+                <input data-sign="+" class="input" id="actionAmount" type="number" onchange="submitTransaction()" />
+            </div>
+            <div id="settingsPage" class="page" hidden>
+                <h2>Settings</h2>
+
+                <div class="setting" id="canloginsetting" onclick="doSettingsCanLogInChange()">Can Log In:<br><input type="checkbox" id="canLogInCheckbox" onclick="event.preventDefault()" /></div>
+                <div class="setting" id="usernamesetting" onclick="doSettingsUsernameChange()">Username:<br></div>
+                <div class="setting" id="pinsetting" onclick="doSettingsPinChange()">Pin:<br></div>
+                <br><br>
+                <div class="setting" style="text-decoration: underline;" onclick="doSettingsDeleteUser()">[Delete User]</div>
+
+                <div class="footer" onclick="backToPerson()"><b>Back</b></div>
+            </div>
+        </div>
+        <div id="inputs" hidden>
+            <div id="numberInputPage" hidden>
+                <br><br><br>
+                <p id="numberInputText"></p><br>
+                <input id="numberInput" type="number" />
+            </div>
+            <div id="textInputPage" hidden>
+                <br><br><br>
+                <p id="textInputText"></p><br>
+                <input id="textInput" type="text" />
+            </div>
+            <div id="numberPasswordInputPage" hidden>
+                <br><br><br>
+                <p id="numberPasswordInputText"></p><br>
+                <input id="numberPasswordInput" type="password" inputmode="numeric" />
+            </div>
+        </div>
+    </body>
+</html>
