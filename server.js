@@ -44,10 +44,12 @@ app.use(sessionMiddleware);
 
 server.listen(port, host, ()=>{
     console.log("Server running on port " + port);
-    // remote.server.port = port;
-    // remote.server.ui = "ui";
-    // var url = remote.server.getInterfaceURL();
-    // console.log("UI available at", url);
+
+    
+    remote.server.port = port;
+    remote.server.ui = "admin";
+    var url = remote.server.getInterfaceURL();
+    console.log("UI available at", url);
 });
 
 app.use("/api", api);

@@ -28,22 +28,3 @@ const Transaction = sequelize.define('Transaction', {
 })
 
 module.exports = Transaction;
-
-// module.exports = (sequelize) => {
-//     const Transaction = sequelize.define('Transaction', {
-//         amount: {
-//             type: DataTypes.DOUBLE,
-//             allowNull: false
-//         },
-//         comment: {
-//             type: DataTypes.STRING,
-//             allowNull: false,
-//             defaultValue: ""
-//         },
-//         timestamp: {
-//             type: DataTypes.DATE,
-//             allowNull: false
-//         }
-//     })
-//     Transaction.sync();
-// }

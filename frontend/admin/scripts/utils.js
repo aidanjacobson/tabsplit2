@@ -1,19 +1,3 @@
-HTMLElement.prototype.show = function() {
-    this.removeAttribute("hidden");
-}
-
-HTMLElement.prototype.hide = function() {
-    this.setAttribute("hidden", "");
-}
-
-function switchTo(page) {
-    lastPage = page;
-    document.querySelectorAll(".page").forEach(function(p) {
-        p.hide();
-    });
-    page.show();
-}
-
 Number.prototype.formatPrice = function(plus=false) {
     var num = this;
     num = Math.floor(num*100)/100;

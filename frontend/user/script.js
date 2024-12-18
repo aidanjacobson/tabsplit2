@@ -2,7 +2,7 @@ window.addEventListener("load", main);
 
 async function main() {
     renderNames();
-    renderTransactions();
+    updateTransactions();
 }
 
 var myName = null;
@@ -35,7 +35,7 @@ async function renderNames() {
     however, negative api transactions are positive for the user
     and positive api transactions are negative for the user
 */
-async function renderTransactions() {
+async function updateTransactions() {
     var response = await api.get("/transaction/getMine");
     if (response.status !== "success") {
         console.error(response);

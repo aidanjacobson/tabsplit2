@@ -55,7 +55,10 @@ async function setUserUsername(userID, username) {
     // verify username does not already exist as a user or admin
     var existingUser = await User.findOne({where: {username: username}});
     var existingAdmin = await Admin.findOne({where: {username: username}});
-    if (existingUser || existingAdmin) {
+    if (existingUser && existingUser.userID !== userID) {
+        throw new Error("username already exists");
+    }
+    if (existingAdmin) {
         throw new Error("username already exists");
     }
 
