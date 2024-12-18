@@ -149,14 +149,21 @@ apiRouter.post("/setCanLogIn", async function(req, res) {
 });
 
 apiRouter.get("/getNames", async function(req, res) {
-    var userName = await UserManager.getNameForUser(req.session.userID);
-    var adminName = await UserManager.getNameForAdmin();
-
-    res.json({
-        status: "success",
-        user: userName,
-        admin: adminName
-    });
+    if (req.session.type === "admin") {
+        var adminName = await UserManager.getNameForAdmin();
+        res.json({
+            status: "success",
+            admin: adminName
+        });
+    } else {
+        var userName = await UserManager.getNameForUser(req.session.userID);
+        var adminName = await UserManager.getNameForAdmin();
+        res.json({
+            status: "success",
+            user: userName,
+            admin: adminName
+        });
+    }
 });
 
 module.exports = apiRouter;
