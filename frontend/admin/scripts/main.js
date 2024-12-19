@@ -77,7 +77,7 @@ function createUserElement(user) {
     balanceElement.textContent = user.balance.formatPrice();
 
     if (user.balance == 0) {
-        userElement.classList.add("positive");
+        // userElement.classList.add("positive");
     } else if (user.balance > 0) {
         userElement.classList.add("positive");
     } else {
