@@ -58,6 +58,8 @@ async function updateUserList() {
         return;
     }
 
+    users = moveZeroBalanceToEnd(users);
+
     var userList = document.querySelector(".people-columns");
     userList.innerHTML = "";
 
@@ -92,6 +94,12 @@ function createUserElement(user) {
     userElement.appendChild(balanceElement);
 
     return userElement;
+}
+
+function moveZeroBalanceToEnd(users) {
+    var zeroBalance = users.filter(user => user.balance === 0);
+    var nonZeroBalance = users.filter(user => user.balance !== 0);
+    return nonZeroBalance.concat(zeroBalance);
 }
 
 async function startNewTab() {
