@@ -28,3 +28,8 @@ function timestampToDateString(timestamp) {
     var year = date.getFullYear();
     return `${month}/${day}/${year}`;
 }
+
+function logout() {
+    api.post("/account/logout");
+    window.location = "/login";
+}
