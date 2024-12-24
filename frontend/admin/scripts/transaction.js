@@ -46,7 +46,7 @@ async function renderTransaction() {
     amountElement.textContent = amount.formatPrice(true);
 
     // render the comment
-    var comment = `"${lastTransaction.comment}"`;
+    var comment = `"${lastTransaction.comment.trim()}"`;
     if (comment === '""') {
         comment = "";
     }
