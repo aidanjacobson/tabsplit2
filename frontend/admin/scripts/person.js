@@ -51,6 +51,7 @@ function createTransactionCard(transaction) {
     var topText = `${amountText} - ${dateText}`;
 
     var label = transaction.comment;
+    label = label.trim();
 
     transactionElement.innerHTML = `${topText}<br>${label}`;
 
