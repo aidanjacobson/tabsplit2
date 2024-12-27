@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="styles/person.css" />
         <link rel="stylesheet" href="styles/transaction.css" />
         <link rel="stylesheet" href="styles/personsettings.css" />
+        <link rel="stylesheet" href="styles/loading.css" />
 
         <script src="../common/apiutils.js"></script>
         <script src="scripts/main.js"></script>
@@ -15,6 +16,7 @@
         <script src="scripts/person.js"></script>
         <script src="scripts/transaction.js"></script>
         <script src="scripts/personsettings.js"></script>
+        <script src="scripts/loading.js"></script>
 
         <script src="scripts/utils.js"></script>
 
@@ -92,6 +94,11 @@
         <div id="numeric-input-view" class="input view">
             <h1 id="numeric-input-question">Enter your answer</h1>
             <input type="number" />
+        </div>
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-text">
+                Loading...
+            </div>
         </div>
     </body>
 </html>

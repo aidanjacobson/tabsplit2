@@ -7,11 +7,25 @@ class API {
     }
 
     async get(path) {
+        if (typeof loadingOverlay !== 'undefined') {
+            startLoading();
+        }
         const response = await fetch(urlJoin(this.baseURL, path));
-        return await response.json();
+        var out = await response.json();
+
+        if (typeof loadingOverlay !== 'undefined') {
+            stopLoading();
+        }
+
+        return out;
     }
 
     async post(path, data) {
+
+        if (typeof loadingOverlay !== 'undefined') {
+            startLoading();
+        }
+
         const response = await fetch(urlJoin(this.baseURL, path), {
             method: 'POST',
             headers: {
@@ -19,7 +33,13 @@ class API {
             },
             body: JSON.stringify(data)
         });
-        return await response.json();
+        var out = await response.json();
+
+        if (typeof loadingOverlay !== 'undefined') {
+            stopLoading();
+        }
+
+        return out;
     }
 
 
