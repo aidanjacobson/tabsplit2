@@ -8,16 +8,18 @@ async function switchToPerson(userID) {
     }
 
     lastUser = user;
-    showView("person-view");
-
+    
     // set the name
     document.querySelector("#personName").textContent = user.name;
-
+    
     // set the balance
     var balanceContainer = document.querySelector("#personBalance");
     balanceContainer.textContent = user.balance.formatPrice();
-
-    updateTransactions();
+    
+    await updateTransactions();
+   
+   
+    showView("person-view");
 }
 
 async function updateTransactions() {

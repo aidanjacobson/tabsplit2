@@ -1,17 +1,16 @@
 var lastTransaction;
 
 async function switchToTransaction(transactionID) {
-
-    showView("transaction-view");
-
     var {status, transaction} = await api.get(`/transaction/get?transactionID=${transactionID}`);
     if (status !== "success") {
         console.error(transaction);
         return;
     }
-
+    
     lastTransaction = transaction;
-    renderTransaction();
+    await renderTransaction();
+
+    showView("transaction-view");
 }
 
 async function renderTransaction() {

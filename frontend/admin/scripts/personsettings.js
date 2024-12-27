@@ -1,6 +1,6 @@
 async function openPersonSettings() {
+    await syncAccountSettings();
     showView("person-settings-view");
-    syncAccountSettings();
 }
 
 var lastAccountSettings = {};
@@ -108,9 +108,9 @@ async function attemptDeletePerson() {
 
     var {status} = await api.post("/user/delete", {userID: lastUser.userID});
     if (status === "success") {
-        showView("main-view");
-        renderMainPage();
+        await renderMainPage();
     } else {
         alert("Failed to delete person");
     }
+    showView("main-view");
 }

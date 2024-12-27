@@ -3,10 +3,13 @@ window.addEventListener("load", async function() {
 });
 
 async function renderMainPage() {
-    renderAdminName();
-    updateCurrentBalance();
-    updateUserList();
+    await Promise.allSettled([
+        renderAdminName(),
+        updateCurrentBalance(),
+        updateUserList()
+    ]);
 }
+
 
 async function renderAdminName() {
     var nameResult = await api.get("/account/getNames");
