@@ -1,5 +1,6 @@
 window.addEventListener("load", async function() {
-    renderMainPage();
+    await renderMainPage();
+    showView("main-view")
 });
 
 async function renderMainPage() {
