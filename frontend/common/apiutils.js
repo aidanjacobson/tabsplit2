@@ -7,24 +7,24 @@ class API {
     }
 
     async get(path) {
-        if (typeof loadingOverlay !== 'undefined') {
-            startLoading();
-        }
+        // if (typeof loadingOverlay !== 'undefined') {
+        //     startLoading();
+        // }
         const response = await fetch(urlJoin(this.baseURL, path));
         var out = await response.json();
 
-        if (typeof loadingOverlay !== 'undefined') {
-            stopLoading();
-        }
+        // if (typeof loadingOverlay !== 'undefined') {
+        //     stopLoading();
+        // }
 
         return out;
     }
 
     async post(path, data) {
 
-        if (typeof loadingOverlay !== 'undefined') {
-            startLoading();
-        }
+        // if (typeof loadingOverlay !== 'undefined') {
+        //     startLoading();
+        // }
 
         const response = await fetch(urlJoin(this.baseURL, path), {
             method: 'POST',
@@ -35,9 +35,9 @@ class API {
         });
         var out = await response.json();
 
-        if (typeof loadingOverlay !== 'undefined') {
-            stopLoading();
-        }
+        // if (typeof loadingOverlay !== 'undefined') {
+        //     stopLoading();
+        // }
 
         return out;
     }
