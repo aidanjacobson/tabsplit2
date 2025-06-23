@@ -6,10 +6,9 @@ import './App.css'
 import LoginBox from './components/LoginBox'
 
 function App() {
-
-  return (
-      <LoginBox />
-  )
+    return (
+        <LoginBox />
+    )
 }
 
 export default App

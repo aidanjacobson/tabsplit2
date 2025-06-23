@@ -1,97 +1,16 @@
-<html>
-    <head>
-        <title>TabSplit</title>
-        <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/733/733317.png" />
-        <link rel="stylesheet" href="styles/style.css" />
-        <link rel="stylesheet" href="styles/main.css" />
-        <link rel="stylesheet" href="styles/inputs.css" />
-        <link rel="stylesheet" href="styles/person.css" />
-        <link rel="stylesheet" href="styles/transaction.css" />
-        <link rel="stylesheet" href="styles/personsettings.css" />
-
-        <script src="../common/apiutils.js"></script>
-        <script src="scripts/main.js"></script>
-        <script src="scripts/view.js"></script>
-        <script src="scripts/person.js"></script>
-        <script src="scripts/transaction.js"></script>
-        <script src="scripts/personsettings.js"></script>
-
-        <script src="scripts/utils.js"></script>
-
-        <script src="scripts/textinput.js"></script>
-        <script src="scripts/numericinput.js"></script>
-    </head>
-    <body>
-        <div id="main-view" class="view active">
-            <div class="container">
-                <button class="logout-button" onclick="logout()">Logout</button>
-                <h1>Hi, <span class="admin-name">[name]</span></h1>
-                <h2 id="balanceContainer" class="positive">You are owed $20.20</h2>
-                <button id="new-tab-button" onclick="startNewTab()">Start New Tab</button> <!-- Added New Tab button -->
-                <div class="people-columns"></div>
-            </div>
-        </div>
-        <div id="person-view" class="view">
-            <div class="container">
-                <h1 id="personName" class="name">[name]</h1>
-                <div id="personBalance" class="balance">$0.00</div>
-                <div class="buttons">
-                    <button class="cover" onclick="doNewTransaction(true)">Cover</button>
-                    <button class="get-covered" onclick="doNewTransaction(false)">Get Covered</button>
-                </div>
-                <div class="transactions">
-                    <h2>Transactions</h2>
-                    <div id="transaction-list" class="transaction-list">
-                        <div class="transaction-card positive">$20.00 - 2023-10-01<br>Lunch</div>
-                        <div class="transaction-card negative">-$15.00 - 2023-10-02<br>Groceries</div>
-                    </div>
-                </div>
-                <button class="back-button" onclick="backToMain()">Back</button>
-                <div class="settings-button" onclick="openPersonSettings()">
-                    <img src="https://cdn-icons-png.flaticon.com/512/6704/6704985.png" />
-                </div>
-            </div>
-        </div>
-        <div id="person-settings-view" class="view">
-            <div class="container">
-                <h1 id="setting-name-top">Settings for [name]</h1>
-                <div class="settings-grid">
-                    <div class="leftaligned">Can Log In</div>
-                    <div class="rightaligned"><input type="checkbox" id="canLogIn" onclick="doCanLogInUpdate(event)" /></div>
-                    <div class="leftaligned">Username</div>
-                    <div class="rightaligned underline" id="usernameDisplay" onclick="changeUsername()">mom</div>
-                    <div class="leftaligned">Pin</div>
-                    <div class="rightaligned underline" id="pinDisplay" onclick="changePin()">1234</div>
-                    <div class="leftaligned">Name</div>
-                    <div class="rightaligned underline" id="nameDisplay" onclick="changeNameFromSetting()">Mom</div>
-                </div>
-                <button class="delete-button fullwidth" onclick="attemptDeletePerson()">Delete Person</button>
-            </div>
-            <button class="back-button" onclick="backToPerson()">Back</button>
-        </div>
-        <div id="transaction-view" class="view">
-            <div class="container">
-                <div id="transaction-info">
-                    <h1 id="transaction-person">Transaction with</h1>
-                    <h3 id="transaction-summary"></h3>
-                    <button onclick="editAmount()" class="edit-button edit-amount-button">Edit Amount</button>
-                    <button onclick="editLabel()" class="edit-button edit-label-button">Edit Label</button>
-                    <h2 id="transaction-date"></h2>
-                    <h1 id="transaction-amount" style="font-size: 70px;"></h1>
-                    
-                    <h1 id="transaction-label">"Dinner"</h1>
-                    <button class="delete-button" onclick="deleteTransaction()">Delete Transaction</button>
-                </div>
-                <button class="back-button" onclick="backToPerson()">Back</button>
-            </div>
-        </div>
-        <div id="text-input-view" class="input view">
-            <h1 id="text-input-question">Enter your answer</h1>
-            <input type="text" />
-        </div>
-        <div id="numeric-input-view" class="input view">
-            <h1 id="numeric-input-question">Enter your answer</h1>
-            <input type="number" />
-        </div>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TabSplit</title>
+  <script type="module" crossorigin src="/assets/admin-C6VROYWC.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/client-B2hCCc6G.js">
+  <link rel="modulepreload" crossorigin href="/assets/apiutils-B9LkjLcV.js">
+  <link rel="stylesheet" crossorigin href="/assets/admin-Bo9PapMM.css">
+</head>
+<body>
+    <div id="root"></div>
+</body>
 </html>
