@@ -1,0 +1,43 @@
+.login-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a2e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 2em;
+}
+.login-box h1 {
+    margin: 0 0 0.3em 0;
+}
+
+.user-pass-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2em;
+}
+
+.user-pass-input input {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.2em 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    text-align: center;
+    background-color: white;
+    color: black;
+}
+
+.login-button button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+}

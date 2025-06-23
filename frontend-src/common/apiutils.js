@@ -34,3 +34,4 @@ function urlJoin(...args) {
 }
 
 var api = new API();
+export default api;
