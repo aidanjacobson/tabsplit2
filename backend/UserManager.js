@@ -28,13 +28,18 @@ async function setUserPin(userID, pin) {
     }
 
     // verify pin is a string
-    if (typeof pin !== "string") {
+    if (typeof pin !== "string" && pin !== null) {
         throw new Error("pin must be a string");
     }
 
     // verify pin only contains numbers
-    if (!/^\d+$/.test(pin)) {
+    if (!/^\d+$/.test(pin) && pin !== null) {
         throw new Error("pin must only contain numbers");
+    }
+
+    // if pin is less than 4 digits, pad it with leading zeros
+    if (pin !== null && pin.length < 4) {
+        pin = pin.padStart(4, '0');
     }
 
     user.pin = pin;
@@ -48,14 +53,14 @@ async function setUserUsername(userID, username) {
     }
 
     // verify username is a string
-    if (typeof username !== "string") {
+    if (typeof username !== "string" && username !== null) {
         throw new Error("username must be a string");
     }
 
     // verify username does not already exist as a user or admin
     var existingUser = await User.findOne({where: {username: username}});
     var existingAdmin = await Admin.findOne({where: {username: username}});
-    if (existingUser && existingUser.userID !== userID) {
+    if (existingUser && existingUser.userID !== userID && username != null) {
         throw new Error("username already exists");
     }
     if (existingAdmin) {

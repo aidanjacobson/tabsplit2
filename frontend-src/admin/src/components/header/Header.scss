@@ -21,6 +21,7 @@
     color: white;
     font-weight: bold;
     padding: 0.2rem;
+    font-size: 1.2rem;
 }
 
 .tabsplit-header-balance.negative {
@@ -40,4 +41,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.logout-button {
+    background-color: rgb(139,0,0);
+    padding: 0.3rem 0.5rem;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: rgb(200,0,0);
+    }
 }

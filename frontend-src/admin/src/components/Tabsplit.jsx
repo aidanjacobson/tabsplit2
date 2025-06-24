@@ -3,10 +3,11 @@ import { useState, useEffect } from 'react';
 import api from "../../../common/apiutils.js";
 
 import TabsplitHeader from './header/TabsplitHeader.jsx';
+import UserList from './userlist/UserList.jsx';
 
 import './Tabsplit.scss';
 
-const Tabsplit = () => {
+const TabsplitMain = () => {
     const [adminName, setAdminName] = useState('[name]');
     const [totalBalance, setTotalBalance] = useState(0);
 
@@ -37,8 +38,9 @@ const Tabsplit = () => {
     return (
         <div className="tabsplit">
             <TabsplitHeader name={adminName} balance={totalBalance} refresh={loadData} />
+            <UserList allUsers={allUsers} />
         </div>
     )
 }
 
-export default Tabsplit;
+export default TabsplitMain;

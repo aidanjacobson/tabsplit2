@@ -41,7 +41,8 @@ export const PromptProvider = ({ children }) => {
 
     const handleConfirm = () => {
         if (resolver) {
-            resolver(value);
+            const result = options.type === 'number' ? Number(value) : value;
+            resolver(result);
         }
         cleanup();
     }
@@ -72,9 +73,7 @@ export const PromptProvider = ({ children }) => {
                                 type={options.type}
                                 value={value}
                                 onChange={(e) => 
-                                    setValue(options.type === 'number'
-                                        ? Number(e.target.value)
-                                        : e.target.value)
+                                    setValue(e.target.value)
                                 }
                                 onKeyDown={(e) => {
                                     if (e.key === 'Enter') {

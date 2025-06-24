@@ -77,7 +77,7 @@ apiRouter.get("/getUserInformation", async function(req, res) {
 });
 
 apiRouter.post("/setPin", async function(req, res) {
-    if (!req.body.userID || !req.body.pin) {
+    if (!req.body.userID) {
         res.status(400).json({
             status: "failure",
             reason: "userID or pin not specified",
@@ -100,8 +100,10 @@ apiRouter.post("/setPin", async function(req, res) {
     }
 });
 
-apiRouter.post("/setUsername", async function(req, res) {
-    if (!req.body.userID || !req.body.username) {
+apiRouter.post("/setUsername", async function (req, res) {
+    const { userID, username } = req.body;
+
+    if (!userID || username === undefined) {
         res.status(400).json({
             status: "failure",
             reason: "userID or username not specified",
@@ -110,12 +112,12 @@ apiRouter.post("/setUsername", async function(req, res) {
         return;
     }
 
+    const sanitizedUsername = (username === "" || username === null) ? null : username;
+
     try {
-        await UserManager.setUserUsername(req.body.userID, req.body.username);
-        res.json({
-            status: "success"
-        });
-    } catch(e) {
+        await UserManager.setUserUsername(userID, sanitizedUsername);
+        res.json({ status: "success" });
+    } catch (e) {
         res.status(400).json({
             status: "failure",
             reason: e.message,

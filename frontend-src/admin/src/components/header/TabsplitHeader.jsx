@@ -5,6 +5,8 @@ import "./Header.scss";
 import { usePromptHandlers } from "../prompt/prompt";
 import StartNewTabButton from './StartNewTabButton';
 
+import formatMoney from "../../../../common/formatmoney.js";
+
 const TabsplitHeader = ({ name, balance, refresh }) => {
     let relationshipClassName = "even";
     if (balance < 0) relationshipClassName = "negative";
@@ -13,10 +15,12 @@ const TabsplitHeader = ({ name, balance, refresh }) => {
     const balanceClassName = `tabsplit-header-balance ${relationshipClassName}`;
 
     // dollar amount should be positive and two decimal places
-    const formattedDollarAmount = Math.abs(balance).toFixed(2);
+    const formattedDollarAmount = formatMoney(balance);
     let formattedBalanceText = "The tab is even";
-    if (balance < 0) formattedBalanceText = `You owe $${formattedDollarAmount}`;
-    if (balance > 0) formattedBalanceText = `You are owed $${formattedDollarAmount}`;
+    if (balance < 0) formattedBalanceText = `You owe ${formattedDollarAmount}`;
+    if (balance > 0) formattedBalanceText = `You are owed ${formattedDollarAmount}`;
+
+
 
     const { promptNumber, promptText } = usePromptHandlers();
 

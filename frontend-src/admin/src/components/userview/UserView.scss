@@ -1,0 +1,137 @@
+.user-view {
+    width: 100%;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.user-view-header {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.user-view-header h1 {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.user-balance {
+    font-size: 1.8rem;
+}
+
+.nav-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav-btn.back {
+    background-color: rgba(255, 0, 0, 0.6);
+
+    &:hover {
+        background-color: rgba(200, 0, 0, 0.6);
+    }
+}
+
+.nav-btn.settings {
+    background-color: rgba(255, 255, 255, 0.4);
+
+    &:hover {
+        background-color: rgba(200, 200, 200, 0.4);
+    }
+}
+
+.financial-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.financial-action {
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.3rem;
+    padding: 2rem 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 1.3rem;
+}
+
+.financial-action.cover {
+    background-color: rgba(0, 255, 0, 0.8);
+
+    &:hover {
+        background-color: rgba(0, 200, 0, 0.8);
+    }
+}
+
+.financial-action.getcovered {
+    background-color: rgba(255, 0, 0, 0.8);
+
+    &:hover {
+        background-color: rgba(200, 0, 0, 0.8);
+    }
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.user-view-transactions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user-view-transaction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0.2rem 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 90%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+
+    transition: background-color 0.3s ease-in-out;
+}
+
+.user-view-transaction.positive {
+    background-color: rgba(0, 255, 0, 0.2);
+
+    &:hover {
+        background-color: rgba(0, 255, 0, 0.4);
+    }
+}
+
+.user-view-transaction.negative {
+    background-color: rgba(255, 0, 0, 0.2);
+
+    &:hover {
+        background-color: rgba(255, 0, 0, 0.4);
+    }
+}
