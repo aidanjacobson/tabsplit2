@@ -1,9 +1,5 @@
-const fs = require("fs");
 const path = require("path");
 const http = require("http");
-const https = require("https");
-
-const remote = require("./backend/utils/remote");
 
 const express = require("express");
 const cors = require("cors");
@@ -17,39 +13,23 @@ app.use(cors());
 
 const auth = require("./backend/auth");
 
-const port = 42070;
+const port = 8080;
 const host = "0.0.0.0";
 
-var server;
-var secure = false;
-if (remote.isRemote()) {
-    var privateKey = fs.readFileSync("/ssl/privkey.pem");
-    var certificate = fs.readFileSync("/ssl/fullchain.pem");
-    var credentials = {key:privateKey,cert:certificate};
-    server = https.createServer(credentials, app)
-    secure = true;
-} else {
-    server = http.createServer(app);
-}
+var server = http.createServer(app);
 
 // Configure session middleware
 const sessionMiddleware = session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: secure }
+    cookie: { secure: false }
 });
 
 app.use(sessionMiddleware);
 
 server.listen(port, host, ()=>{
     console.log("Server running on port " + port);
-
-    
-    remote.server.port = port;
-    remote.server.ui = "admin";
-    var url = remote.server.getInterfaceURL();
-    console.log("UI available at", url);
 });
 
 app.use("/api", api);
@@ -72,3 +52,15 @@ app.use("/user", auth.userPageMiddleware, express.static(path.join(__dirname, "f
 app.use("/admin", auth.adminPageMiddleware, express.static(path.join(__dirname, "frontend/admin")));
 
 app.use("/", express.static(path.join(__dirname, "frontend")));
+
+app.get("/user/*", auth.userPageMiddleware, (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend/user/index.html"));
+});
+
+app.get("/admin/*", auth.adminPageMiddleware, (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend/admin/index.html"));
+});
+
+app.get("/login/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend/login/index.html"));
+});

@@ -1,0 +1,56 @@
+.tabsplit-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.tabsplit-header-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tabsplit-header-balance {
+    width: 100%;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    padding: 0.2rem;
+    font-size: 1.2rem;
+}
+
+.tabsplit-header-balance.negative {
+    background-color: rgba(255, 0, 0, 0.4);
+}
+
+.tabsplit-header-balance.positive {
+    background-color: rgba(0, 255, 0, 0.4);
+}
+
+.tabsplit-header-balance.even {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tabsplit-header-start-new-tab {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logout-button {
+    background-color: rgb(139,0,0);
+    padding: 0.3rem 0.5rem;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: rgb(200,0,0);
+    }
+}

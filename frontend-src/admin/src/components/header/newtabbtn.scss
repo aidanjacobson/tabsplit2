@@ -1,0 +1,17 @@
+.start-new-tab-button {
+    width: 95%;
+    padding: 0.5rem;
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}

@@ -1,0 +1,7 @@
+.vs
+.vscode
+node_modules
+package-lock.json
+/temp_db
+frontend/
+.env

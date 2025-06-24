@@ -13,6 +13,7 @@ const Admin = require("./backend/sequelize/models/Admin");
 const server = require("./server");
 
 async function main() {
+
     await init.initAll();
 
     // if no admins exist, create one

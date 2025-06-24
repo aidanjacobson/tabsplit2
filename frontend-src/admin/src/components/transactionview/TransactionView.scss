@@ -1,0 +1,118 @@
+.transaction-view {
+    width: 100%;
+    max-width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.transaction-view-header {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 100%;
+}
+
+.transaction-view-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.transaction-view-header h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.edit-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.edit-action {
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    background-color: #ccc;
+    display: flex;
+    flex: 1 1 45%;
+    justify-content: center;
+    align-items: center;
+    margin: 0.2rem;
+}
+
+.edit-action.edit-amount {
+    background-color: rgb(144,238,144);
+
+    &:hover {
+        background-color: rgb(104, 198, 104);
+    }
+}
+
+.edit-action.edit-label {
+    background-color: rgb(173, 216, 230);
+
+    &:hover {
+        background-color: rgb(123, 176, 190);
+    }
+}
+
+.back-btn-container {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
+
+.back-btn {
+    background-color: rgba(255, 0, 0, 0.6);
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 0.3rem 1rem;
+
+    &:hover {
+        background-color: rgba(200, 0, 0, 0.6);
+    }
+}
+
+.transaction-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.transaction-info h2 {
+    margin: 0.2rem 0;
+    font-size: 1.2rem;
+}
+
+.transaction-info h1 {
+    margin: 0.2rem 0;
+    font-size: 1.6rem;
+}
+
+.delete-transaction-button {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 1rem;
+    width: 80%;
+
+    &:hover {
+        background-color: rgb(200, 0, 0);
+    }
+}
