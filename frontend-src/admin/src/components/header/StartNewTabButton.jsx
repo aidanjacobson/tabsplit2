@@ -4,11 +4,16 @@ import "./newtabbtn.scss";
 
 import { usePromptHandlers } from "../prompt/prompt";
 
-const StartNewTabButton = () => {
+const StartNewTabButton = ({ refresh }) => {
     const { promptText } = usePromptHandlers();
 
     async function startNewTab() {
         const tabName = await promptText("Enter name of person");
+        const result = await api.post('/user/add', { name: tabName });
+
+        refresh();
+
+        // TODO: switch to the new tab
     }
 
     return (

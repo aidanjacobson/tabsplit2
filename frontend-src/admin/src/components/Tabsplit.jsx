@@ -36,7 +36,7 @@ const Tabsplit = () => {
 
     return (
         <div className="tabsplit">
-            <TabsplitHeader name={adminName} balance={totalBalance} />
+            <TabsplitHeader name={adminName} balance={totalBalance} refresh={loadData} />
         </div>
     )
 }

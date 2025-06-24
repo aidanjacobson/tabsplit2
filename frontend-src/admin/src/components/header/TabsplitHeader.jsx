@@ -5,7 +5,7 @@ import "./Header.scss";
 import { usePromptHandlers } from "../prompt/prompt";
 import StartNewTabButton from './StartNewTabButton';
 
-const TabsplitHeader = ({ name, balance }) => {
+const TabsplitHeader = ({ name, balance, refresh }) => {
     let relationshipClassName = "even";
     if (balance < 0) relationshipClassName = "negative";
     if (balance > 0) relationshipClassName = "positive";
@@ -28,7 +28,7 @@ const TabsplitHeader = ({ name, balance }) => {
             </div>
             <div className={balanceClassName}>{formattedBalanceText}</div>
             <div className="tabsplit-header-start-new-tab">
-                <StartNewTabButton />
+                <StartNewTabButton refresh={refresh} />
             </div>
         </div>
     );
