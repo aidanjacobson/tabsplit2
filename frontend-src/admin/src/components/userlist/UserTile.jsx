@@ -9,21 +9,6 @@ const UserTile = ({ user }) => {
     if (user.balance > 0) balanceClass = "positive";
     let totalClass = "user-tile " + balanceClass;
 
-    //function formatBalance(balance) {
-    //    let positiveBalance = Math.abs(balance);
-    //    let balanceString = positiveBalance.toString();
-    //    if (positiveBalance % 1 != 0) {
-    //        balanceString = positiveBalance.toFixed(2);
-    //    }
-
-    //    balanceString = "$" + balanceString;
-    //    if (balance < 0) {
-    //        balanceString = "-" + balanceString;
-    //    }
-
-    //    return balanceString;
-    //}
-
     let formattedBalance = formatMoney(user.balance, { signNegative: true });
 
     return (
