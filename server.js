@@ -13,7 +13,7 @@ app.use(cors());
 
 const auth = require("./backend/auth");
 
-const port = 8080;
+const port = 42070;
 const host = "0.0.0.0";
 
 var server = http.createServer(app);
