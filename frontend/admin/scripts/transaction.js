@@ -36,6 +36,10 @@ async function renderTransaction() {
     }
     document.querySelector("#transaction-summary").textContent = summary;
 
+    var totalAmount = lastTransaction.total;
+    var totalSummary = `Balance as of here: ${totalAmount.formatPrice()}`
+    document.querySelector("#total-summary").textContent = totalSummary;
+
     // render the timestamp
     var timestamp = timestampToDateString(lastTransaction.timestamp);
     document.querySelector("#transaction-date").textContent = timestamp;

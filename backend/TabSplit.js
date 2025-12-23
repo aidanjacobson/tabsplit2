@@ -82,6 +82,9 @@ async function getUserTransactions(userID) {
 
 async function getTransactionDetails(transactionID) {
     var transaction = await Transaction.findOne({where:{id: transactionID}});
+    var allTransactions = await Transaction.findAll({where:{userId:transaction.userID}})
+    var transactionsUntilNow = allTransactions.filter(t=>t.timestamp<=transaction.timestamp);
+    var totalSum = transactionsUntilNow.reduce((acc,cur)=>acc+cur.amount,0);
     if (!transaction) {
         throw new Error("Could not find transaction");
     }
@@ -91,7 +94,8 @@ async function getTransactionDetails(transactionID) {
         comment: transaction.comment,
         timestamp: transaction.timestamp,
         id: transaction.id,
-        userID: transaction.userID
+        userID: transaction.userID,
+        total: totalSum
     }
 }
 
