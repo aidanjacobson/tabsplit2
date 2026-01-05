@@ -29,6 +29,8 @@ const TransactionViewHeader = ({ transaction, user, refresh }) => {
         statusText = `You owe ${user.name} ${amount}`;
     }
 
+    const balance = formatMoney(transaction.balanceAtTime, { signNegative: true });
+
     return (
         <div className="transaction-view-header">
             <div className="back-btn-container">
@@ -36,6 +38,7 @@ const TransactionViewHeader = ({ transaction, user, refresh }) => {
             </div>
             <h1>Transaction with {user.name}</h1>
             <h3>{statusText}</h3>
+            <h3>Running total: {balance}</h3>
             <EditActions transaction={transaction} refresh={refresh} />
         </div>
     )

@@ -1,6 +1,16 @@
 const User = require("./sequelize/models/User")
 const Transaction = require("./sequelize/models/Transaction")
 
+function transactionFromORM(result) {
+    return {
+        amount: result.amount,
+        comment: result.comment,
+        timestamp: result.timestamp,
+        id: result.id,
+        userID: result.userID
+    }
+}
+
 async function getAllUsers() {
     var allValues = await User.findAll();
     var out = allValues.map(value=>({name: value.name, username: value.username, userID: value.userID}))
@@ -69,14 +79,27 @@ async function deleteUser(userID) {
     await user.destroy();
 }
 
+async function getBalanceAtTransaction(transactions, transaction) {
+    var sumUntilNow = 0;
+    for (var t of transactions) {
+        if (t.timestamp <= transaction.timestamp) {
+            sumUntilNow += t.amount;
+        }
+    }
+    return roundCents(sumUntilNow);
+}
+
 async function getUserTransactions(userID) {
     var results = await Transaction.findAll({where: {userID}});
     var transactions = [];
     for (var result of results) {
-        transactions.push(result);
+        transactions.push(transactionFromORM(result));
     }
     // sort by timestamp
     transactions.sort((a, b)=>b.timestamp - a.timestamp);
+    for (var i = 0; i < transactions.length; i++) {
+        transactions[i].balanceAtTime = await getBalanceAtTransaction(transactions, transactions[i]);
+    }
     return transactions;
 }
 
@@ -86,13 +109,11 @@ async function getTransactionDetails(transactionID) {
         throw new Error("Could not find transaction");
     }
     // need to return amount, comment, timestamp, id, userID
-    return {
-        amount: transaction.amount,
-        comment: transaction.comment,
-        timestamp: transaction.timestamp,
-        id: transaction.id,
-        userID: transaction.userID
-    }
+    var allUserTransactions = await getUserTransactions(transaction.userID);
+
+    var transObj = transactionFromORM(transaction);
+    transObj.balanceAtTime = await getBalanceAtTransaction(allUserTransactions, transaction);
+    return transObj;
 }
 
 async function submitTransaction(userID, amount, comment="") {

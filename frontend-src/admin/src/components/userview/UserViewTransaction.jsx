@@ -30,6 +30,8 @@ const UserViewTransaction = ({ transaction }) => {
         { formatHeader() }
         <br />
         {transaction.comment}
+        <br />
+        (Running total: {formatMoney(transaction.balanceAtTime, { signNegative: true })})
     </div>;
 }
 
